@@ -1,8 +1,10 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import Modal from './components/Modal/Modal';
+import Alert from './components/Alert/Alert';
 
 const App = () => {
   const [showModal, setShowModal] = useState(false);
+  const [showAlert, setShowAlert] = useState(false);
 
   return (
     <>
@@ -36,6 +38,19 @@ const App = () => {
           </button>
         </div>
       </Modal>
+      <div>
+        <button
+          className="w-25  btn btn-outline-success m-4"
+          onClick={() => setShowAlert(false)}
+        >
+          Нажмите чтобы открыть Alert окно
+        </button>
+        <Alert
+          show={showAlert}
+          onDismiss={() => setShowAlert(false)}
+          message=""
+        ></Alert>
+      </div>
     </>
   );
 };
